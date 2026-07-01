@@ -35,11 +35,8 @@
 - [Hardware](#-hardware)
 - [Getting Started](#-getting-started)
 - [Results](#-results)
-- [Repository Structure](#-repository-structure)
-- [Bill of Materials](#-bill-of-materials)
 - [Limitations & Future Work](#️-limitations--future-work)
 - [References](#-references)
-- [Acknowledgments](#-acknowledgments)
 - [License](#-license)
 
 ---
@@ -418,54 +415,6 @@ Evaluated against a clinical-grade reference oximeter across 5 healthy adult vol
 
 > ⚠️ **Honest limitation:** SpO₂ validation was constrained to healthy volunteers in room air (96–99% range). The clinically critical 85–94% desaturation range has **not** been validated — this requires an IRB-approved controlled study (see [Future Work](#️-limitations--future-work)).
 
----
-
-## 📁 Repository Structure
-
-```
-vitalsense/
-├── firmware/
-│   ├── HealthMonitor.ino        # Main firmware — signal processing, BLE, display
-│   ├── stress_model.h           # TFLite Micro INT8 model (C array)
-│   └── scaler_constants.h       # Z-score normalization constants
-├── app/                         # Flutter mobile application
-│   ├── lib/
-│   │   ├── screens/
-│   │   │   ├── scanner_screen.dart
-│   │   │   ├── dashboard_page.dart
-│   │   │   ├── history_page.dart
-│   │   │   └── settings_page.dart
-│   │   └── widgets/
-│   │       └── custom_painters.dart   # SparklinePainter for PPG waveform
-│   └── pubspec.yaml
-├── ml/
-│   ├── stress.py                # Training pipeline (TensorFlow/Keras)
-│   └── data/                    # Logged RR-interval sessions
-├── hardware/
-│   ├── schematic/                # Circuit schematic
-│   └── pcb/                      # Gerbers, BOM
-└── docs/
-    └── images/                   # Photos, screenshots, diagrams
-```
-
-> *Adjust folder names above to match your actual repository layout.*
-
----
-
-## 💰 Bill of Materials
-
-| Component | Qty | Unit Cost (EGP) |
-|---|---|---|
-| ESP32-S3-N16R8 | 1 | 550 |
-| MAX30102 (GY-MAX30102) | 1 | 250 |
-| MPU6050 (GY-521) | 1 | 300 |
-| GC9A01A Round TFT | 1 | 350 |
-| TP4056 HW-107 Module | 1 | 20 |
-| AMS1117-3.3V (SOT-223) | 1 | 15 |
-| 3.7V Li-ion 500mAh | 1 | 80 |
-| Passives (resistors, caps, switch) | — | 15 |
-| PCB fabrication (5 pcs) | 5 | 50 |
-| **Total** | | **≈ 1,880 EGP (~$38 USD)** |
 
 ---
 
@@ -504,24 +453,8 @@ Key sources underpinning the methodology (full list in the project report):
 
 ---
 
-## 👥 Acknowledgments
-
-- **Supervisor:** Dr. Samy Abd El-Nabi — Associate Professor, Faculty of Computer Science and Engineering, KSIU
-- **Institution:** King Salman International University, El-Tor Campus
-- Built on the shoulders of the SparkFun MAX3010x library, TensorFlow Lite for Microcontrollers, and the flutter_blue_plus community package
-
----
 
 ## 📄 License
 
 This project was developed as an academic graduation project (CSE494, KSIU 2026). Feel free to add a `LICENSE` file — [MIT](https://choosealicense.com/licenses/mit/) is a common, permissive choice for student open-source projects if you'd like others to freely use, modify, and distribute this work.
 
----
-
-<div align="center">
-
-**⭐ If this project helped you, consider starring the repo!**
-
-Made with 💓 and way too much coffee — Ziad Mohamed Shaker, 2026
-
-</div>
